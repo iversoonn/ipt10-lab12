@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examinees</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+
+    <style>
+        body {
+            padding-top: 50px;
+        }
+
+        .main__container {
+            width: 100dvw;
+            padding: 0px 500px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main__container">
+        <h2>Exam Attempts</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Attempt Date</th>
+                    <th>Examinee Name</th>
+                    <th>Number of Items</th>
+                    <th>Total Score</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#examAttempts}}
+                <tr>
+                    <td>{{ attempt_date }}</td>
+                    <td>{{ complete_name }}</td>
+                    <td>{{ exam_number_of_items }}</td>
+                    <td>{{ total_score }}</td>
+                    <td>
+                        <a href="/exam-attempts/{{ id }}" class="export-btn">Export to PDF</a>
+                    </td>
+                </tr>
+                {{/examAttempts}}
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>
